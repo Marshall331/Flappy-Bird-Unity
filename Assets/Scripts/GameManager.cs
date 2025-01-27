@@ -18,13 +18,30 @@ public class GameManager : MonoBehaviour
         GameOver
     }
 
+    public float speedPipes;
+    public float numberPipes;
+    public float distanceBetweenPipes;
+
+    public Pipe pipePrefab;
+
     public GameState CurrentState;
+
+    public Transform pipeSpawnPoint;
 
     void Awake()
     {
         Instance = this;
 
         Application.targetFrameRate = 60;
+    }
+
+    void Start()
+    {
+        CurrentState = GameState.MainMenu;
+
+        for (int i = 0; i < numberPipes; i++) { 
+            Pipe pipe = Instantiate(pipePrefab, pipeSpawnPoint.position + new Vector3(i * distanceBetweenPipes, 0, 0), Quaternion.identity);
+        }
     }
 
     public void StartGame()
