@@ -7,7 +7,6 @@ public class DebugManager : MonoBehaviour
     public KeyCode StartGameInput;
     public KeyCode ResetInput;
 
-#if UNITY_EDITOR
     void Update()
     {
         if (Input.GetKeyDown(StartGameInput))
@@ -21,4 +20,3 @@ public class DebugManager : MonoBehaviour
         }
     }
 }
-#endif
